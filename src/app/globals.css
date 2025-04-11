@@ -1,38 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* IMDb-inspired colors (dark theme) */
+  --background: #171717;      /* IMDb's signature black */
+  --foreground: #F5C518;      /* IMDb's gold/yellow (#F5C518) */
+  --card-bg: #1A1A1A;         /* Dark gray for cards (like IMDb's UI) */
+  --text-primary: #FFFFFF;    /* Pure white for text */
+  --text-secondary: #CCCCCC;  /* Light gray for subtler text */
+  --accent-1: #5799EF;        /* IMDb's blue (used for links/buttons) */
+  --accent-2: #00A878;        /* Green for completion status */
 }
 
-@theme inline {
+/* Light mode (optional - IMDb is mostly dark) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #bf9b26;     /* Keep gold as primary accent */
+    --card-bg: #F4F4F4;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --accent-1: #5799EF;        /* IMDb's blue (used for links/buttons) */
+    --accent-2: #00A878;        /* Green for completion status */
+  }
+}
+
+/* Tailwind v4 Theme Integration */
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-card: var(--card-bg);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-background text-primary;
+    font-family: Arial, sans-serif; /* IMDb uses sans-serif */
   }
-}
-
-
-
-@layer utilities {
-  .buttonX {
-    @apply rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]
+  h1 {
+    @apply text-2xl font-extrabold
   }
 
-  .buttonY {
-    @apply rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto
+  h2 {
+    @apply text-xl font-bold
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  h1, h2, h3 {
+    @apply text-foreground; /* Gold headers like IMDb */
+  }
+  button {
+    @apply bg-foreground text-background px-4 py-2 rounded mt-2;
+  }
 }
