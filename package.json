@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "clsx": "^2.1.1",
     "heroicons": "^2.2.0",
     "mongoose": "^8.13.2",
     "next": "15.3.0",

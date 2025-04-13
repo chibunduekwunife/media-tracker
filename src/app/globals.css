@@ -37,7 +37,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-primary;
+    @apply bg-background text-primary mx-5 lg:mx-15;
     font-family: Arial, sans-serif; /* IMDb uses sans-serif */
   }
   h1 {
@@ -48,10 +48,30 @@
     @apply text-xl font-bold
   }
 
+  h3 {
+    @apply font-bold
+  }
+
   h1, h2, h3 {
     @apply text-foreground; /* Gold headers like IMDb */
   }
   button {
     @apply bg-foreground text-background px-4 py-2 rounded mt-2;
+  }
+
+  footer, nav {
+    @apply bg-foreground py-5 px-10 lg:px-20;
+  }
+
+}
+
+@layer utilities {
+  .nav-link{
+    @apply text-background font-bold hover:text-background transition-all ease-in-out
+    hover:scale-105;
+  }
+  .nav-button{
+    @apply text-foreground bg-background px-3 py-1.5 rounded transition-all ease-in-out
+    hover:scale-105 shadow-lg;
   }
 }

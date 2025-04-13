@@ -1,10 +1,12 @@
 
 import TopTenSection from "@/components/home/top-ten-section";
+import HeroSection from "@/components/home/hero-section";
 
 export default function HomePage () {
   return (
-      <div>
+      <main className='mt-10 flex flex-col gap-15'>
+          <HeroSection />
           <TopTenSection />
-      </div>
+      </main>
   )
 }
