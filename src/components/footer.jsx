@@ -5,7 +5,6 @@ import {
     footerLinks,
     socialIconLinks
 } from "@/lib/links";
-import { Switch } from "@/components/ui/switch"
 import Link from 'next/link';
 
 export default function Footer () {
@@ -18,7 +17,6 @@ export default function Footer () {
                     <div className=''>
                         <h3 className="text-background">Customize Theme</h3>
                         <div className='flex'>
-                            <Switch />
                         </div>
                     </div>
                     <div>
