@@ -53,19 +53,19 @@ export const mockAnimeDB = [
     },
     {
         id: 5,
-        title: "Bleach",
-        rating: 8.2,
-        totalEpisodes: 192,
-        coverImg: '/bleach.jpg',
-        alt: 'Bleach'
-    },
-    {
-        id: 6,
         title: "Code Geass",
         rating: 8.9,
         totalEpisodes: 204,
         coverImg: '/cg.jpg',
         alt: 'Code Geass'
+    },
+    {
+        id: 6,
+        title: "Bleach",
+        rating: 8.2,
+        totalEpisodes: 192,
+        coverImg: '/bleach.jpg',
+        alt: 'Bleach'
     },
     {
         id: 7,

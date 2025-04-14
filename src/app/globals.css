@@ -3,29 +3,59 @@
 :root {
   /* IMDb-inspired colors (dark theme) */
   --background: #171717;      /* IMDb's signature black */
-  --foreground: #F5C518;      /* IMDb's gold/yellow (#F5C518) */
-  --card-bg: #1A1A1A;         /* Dark gray for cards (like IMDb's UI) */
+  --foreground: #F5C518;      /* IMDb's gold/yellow */
+  --card-bg: #1A1A1A;         /* Dark gray for cards */
   --text-primary: #FFFFFF;    /* Pure white for text */
   --text-secondary: #CCCCCC;  /* Light gray for subtler text */
-  --accent-1: #5799EF;        /* IMDb's blue (used for links/buttons) */
-  --accent-2: #00A878;        /* Green for completion status */
+  --accent-1: #5799EF;        /* IMDb's blue */
+  --accent-2: #00A878;        /* IMDb's green */
+
+  /* ── Shadcn UI CSS Variables ─────────────────────── */
+  --muted: hsl(223 47% 11%);
+  --muted-foreground: hsl(215.4 16.3% 56.9%);
+  --accent: hsl(216 34% 17%);
+  --accent-foreground: hsl(210 40% 98%);
+  --popover: hsl(224 71% 4%);
+  --popover-foreground: hsl(215 20.2% 65.1%);
+  --border: hsl(216 34% 17%);
+  --input: hsl(216 34% 17%);
+  --card: hsl(224 71% 4%);
+  --card-foreground: hsl(213 31% 91%);
+  --primary: hsl(210 40% 98%);
+  --primary-foreground: hsl(222.2 47.4% 1.2%);
+  --secondary: hsl(222.2 47.4% 11.2%);
+  --secondary-foreground: hsl(210 40% 98%);
+  --destructive: hsl(0 63% 31%);
+  --destructive-foreground: hsl(210 40% 98%);
+  --ring: hsl(216 34% 17%);
+
+  /* Shadcn UI border radius */
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* Light mode (optional - IMDb is mostly dark) */
+/* Light mode (optional – IMDb is mostly dark) */
 @media (prefers-color-scheme: light) {
   :root {
+    /* IMDb light overrides */
     --background: #FFFFFF;
     --foreground: #bf9b26;     /* Keep gold as primary accent */
     --card-bg: #F4F4F4;
     --text-primary: #000000;
     --text-secondary: #666666;
-    --accent-1: #5799EF;        /* IMDb's blue (used for links/buttons) */
-    --accent-2: #00A878;        /* Green for completion status */
+    --accent-1: #5799EF;
+    --accent-2: #00A878;
+
+    /* (You may add Shadcn light‑mode overrides here if desired) */
   }
 }
 
 /* Tailwind v4 Theme Integration */
 @theme {
+  /* IMDb mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--text-primary);
@@ -33,45 +63,71 @@
   --color-card: var(--card-bg);
   --color-accent-1: var(--accent-1);
   --color-accent-2: var(--accent-2);
+
+  /* Shadcn UI mappings */
+  --radius: var(--radius);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-card-foreground: var(--card-foreground);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
 }
 
 @layer base {
   body {
-    @apply bg-background text-primary mx-5 lg:mx-15;
+    @apply bg-background text-primary;
     font-family: Arial, sans-serif; /* IMDb uses sans-serif */
   }
   h1 {
-    @apply text-2xl font-extrabold
+    @apply text-2xl font-extrabold;
   }
-
   h2 {
-    @apply text-xl font-bold
+    @apply text-xl font-bold;
   }
-
   h3 {
-    @apply font-bold
+    @apply font-bold;
   }
-
   h1, h2, h3 {
     @apply text-foreground; /* Gold headers like IMDb */
   }
   button {
     @apply bg-foreground text-background px-4 py-2 rounded mt-2;
   }
-
   footer, nav {
     @apply bg-foreground py-5 px-10 lg:px-20;
   }
-
+  input, select {
+    @apply text-foreground bg-card rounded p-2.5 my-1 outline-none;
+  }
 }
 
 @layer utilities {
-  .nav-link{
-    @apply text-background font-bold hover:text-background transition-all ease-in-out
-    hover:scale-105;
+  .nav-link {
+    @apply text-background font-bold hover:text-background
+    transition-all ease-in-out hover:scale-105;
   }
-  .nav-button{
-    @apply text-foreground bg-background px-3 py-1.5 rounded transition-all ease-in-out
-    hover:scale-105 shadow-lg;
+  .nav-button {
+    @apply text-foreground bg-background px-3 py-1.5 rounded
+    transition-all ease-in-out hover:scale-105 shadow-lg;
   }
 }

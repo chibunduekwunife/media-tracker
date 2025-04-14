@@ -5,7 +5,7 @@ import {
     footerLinks,
     socialIconLinks
 } from "@/lib/links";
-import clsx from 'clsx';
+import { Switch } from "@/components/ui/switch"
 import Link from 'next/link';
 
 export default function Footer () {
@@ -18,9 +18,7 @@ export default function Footer () {
                     <div className=''>
                         <h3 className="text-background">Customize Theme</h3>
                         <div className='flex'>
-                            <MdOutlineTypeSpecimen className='size-7 text-background'/>
-                            <MdOutlineTypeSpecimen className='size-7 text-background'/>
-                            <MdOutlineTypeSpecimen className='size-7 text-background'/>
+                            <Switch />
                         </div>
                     </div>
                     <div>
