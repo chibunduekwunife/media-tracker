@@ -116,8 +116,8 @@
   footer, nav {
     @apply bg-foreground py-5 px-10 lg:px-20;
   }
-  input, select {
-    @apply text-foreground bg-card rounded p-2.5 my-1 outline-none;
+  input, select, option, datalist {
+    @apply text-primary bg-card p-2.5 my-1 outline-none;
   }
 }
 
